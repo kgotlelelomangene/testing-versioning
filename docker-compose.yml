@@ -1,0 +1,20 @@
+version: "3.7"
+name: versioning_test_node_app
+services:
+  versioning_test_service:
+    container_name: versioning_test_service
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        BASE_IMAGE: node:22-alpine3.19
+    environment:
+      - APP_PORT=8080
+    ports:
+      - 8081:8080
+    networks:
+      - vanguard_network
+ 
+networks:
+  vanguard_network:
+    name: vanguard_network
