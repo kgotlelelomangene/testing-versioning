@@ -3,7 +3,7 @@ name: Docker
 on:
   push:
     branches: [ "version-testing" ]
-    tags: [ 'v*.*.*' ]
+    #tags: [ 'v*.*.*' ]
   workflow_dispatch:
 
 env:
