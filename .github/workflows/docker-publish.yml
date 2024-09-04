@@ -58,7 +58,7 @@ jobs:
           file: ./docker/Dockerfile
           build-args: BASE_IMAGE=${{ env.BASE_IMAGE }}
           tags: ${{ steps.meta.outputs.tags }}
-          run: echo 'our tags
+          run: echo 'our tags'
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
