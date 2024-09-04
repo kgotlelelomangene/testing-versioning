@@ -54,10 +54,10 @@ jobs:
         uses: docker/build-push-action@v5 #0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
           file: ./docker/Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
           build-args: BASE_IMAGE=${{ env.BASE_IMAGE }}
-          tags:  v0.0.1 #${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
