@@ -57,11 +57,12 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           file: ./docker/Dockerfile
           build-args: BASE_IMAGE=${{ env.BASE_IMAGE }}
-          tags: ${{ steps.meta.outputs.tags }}
-          run: echo 'our tags'
+          tags:  'v0.0.1' #${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+        
+        
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
