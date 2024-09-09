@@ -54,7 +54,7 @@ jobs:
             BASE_IMAGE=${{ env.BASE_IMAGE }}
             IMAGE_NAME=${{ env.IMAGE_NAME }}
             tags: |
-              ghcr.io/thought_machine:v0.1-latest
+              ghcr.io/kgotlelelomangene/thought_machine:v0.1-latest
           # tags: ${{ steps.meta.outputs.tags }}
           # labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
