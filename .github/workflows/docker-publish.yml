@@ -20,8 +20,13 @@ jobs:
       contents: read
       packages: write
       id-token: write
+      issues: read
 
     steps:
+      - name: login test
+        run: |
+          export CR_PAT=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
+          docker login ghcr.io -u kgotlelelo1 --password-stdin
       - name: Checkout repository
         uses: actions/checkout@v4
 
