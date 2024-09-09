@@ -60,7 +60,7 @@ jobs:
           build-args: |
             BASE_IMAGE=${{ env.BASE_IMAGE }}
             IMAGE_NAME=${{ env.IMAGE_NAME }}
-            ${{ env.DOCKER_TOKEN}}
+            DOCKER_TOKEN=${{ env.DOCKER_TOKEN}}
             
           tags: ghcr.io/kgotlelelomangene/thought_machine:v0.2
           # tags: ${{ steps.meta.outputs.tags }}
