@@ -43,6 +43,8 @@ jobs:
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
+      - name: print tags
+        run: echo ${{ steps.meta.outputs.tags }}
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v5 #0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
@@ -53,7 +55,8 @@ jobs:
           build-args: |
             BASE_IMAGE=${{ env.BASE_IMAGE }}
             IMAGE_NAME=${{ env.IMAGE_NAME }}
-            tags: ghcr.io/kgotlelelomangene/thought_machine:v0.1-latest
+            
+          tags: ghcr.io/kgotlelelomangene/thought_machine:v0.1-latest
           # tags: ${{ steps.meta.outputs.tags }}
           # labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
