@@ -53,9 +53,7 @@ jobs:
           build-args: |
             BASE_IMAGE=${{ env.BASE_IMAGE }}
             IMAGE_NAME=${{ env.IMAGE_NAME }}
-            tags: |
-              ${{ steps.meta.outputs.tags }}
-              ghcr.io/kgotlelelomangene/thought_machine:v0.1-latest
+            tag: ghcr.io/kgotlelelomangene/thought_machine:v0.1-latest
           # tags: ${{ steps.meta.outputs.tags }}
           # labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
