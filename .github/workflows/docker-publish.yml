@@ -9,7 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  BASE_IMAGE: node:22-alpine3.19
+  BASE_IMAGE: ghcr.io/bbdsoftware/vanguard/python-postgresql:0.0.1--slim
 
 
 jobs:
