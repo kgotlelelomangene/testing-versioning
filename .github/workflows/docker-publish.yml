@@ -43,10 +43,11 @@ jobs:
       #     password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: download base image
-        run: |         
+        run: |     
+          echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin
           docker pull ghcr.io/bbdsoftware/vanguard/python-postgresql:0.0.1-slim
 
-     # echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin
+     # 
       # - name: Log into registry ${{ env.REGISTRY }}
       #   uses: docker/login-action@v3 #343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
       #   with:
