@@ -60,7 +60,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: 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
 
       - name: download base image
         run: | 
