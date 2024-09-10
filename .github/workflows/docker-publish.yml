@@ -10,7 +10,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   BASE_IMAGE: ghcr.io/bbdsoftware/vanguard/python-postgresql:0.0.1--slim
-  DOCKER_TOKEN: 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
+  DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
 
 jobs:
