@@ -1,24 +1,26 @@
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
 
-FROM python:3.7.16-slim-buster
-# base file
-RUN apt-get update && \
-    apt-get install gcc libc-dev g++ libffi-dev libxml2 unixodbc-dev -y
-RUN python -m pip install --upgrade pip
+# FROM python:3.7.16-slim-buster
+# # base file
+# RUN apt-get update && \
+#     apt-get install gcc libc-dev g++ libffi-dev libxml2 unixodbc-dev -y
+# RUN python -m pip install --upgrade pip
 
-RUN groupadd -r appuser && useradd -g appuser appuser
+# RUN groupadd -r appuser && useradd -g appuser appuser
 
-USER appuser
+# USER appuser
 
-ENV PATH="/home/appuser/.local/bin:${PATH}"
+# ENV PATH="/home/appuser/.local/bin:${PATH}"
 
-WORKDIR /home/appuser
+# WORKDIR /home/appuser
 
-# python postgresql
-USER root
+# # python postgresql
+# USER root
 
-RUN apt-get update && apt-get install odbc-postgresql -y
-RUN python -m pip install --upgrade pip
-RUN pip install psycopg2-binary==2.9.5
+# RUN apt-get update && apt-get install odbc-postgresql -y
+# RUN python -m pip install --upgrade pip
+# RUN pip install psycopg2-binary==2.9.5
 
 
 USER root
