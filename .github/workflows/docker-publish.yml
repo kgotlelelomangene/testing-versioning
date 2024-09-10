@@ -9,7 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  BASE_IMAGE: python:3.7.16-slim-buster
+  BASE_IMAGE: ghcr.io/bbdsoftware/vanguard/base-python:0.0.1-slim
   DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
   
 #   FROM python:3.7.16-slim-buster
@@ -97,7 +97,7 @@ jobs:
         with: 
           context: ./app_service
           file: ./app_service/docker/Dockerfile
-          push: ${{ github.event_name != 'pull_request' }}
+          push: false
           build-args: |
             BASE_IMAGE=${{ env.BASE_IMAGE }}
             IMAGE_NAME=${{ env.IMAGE_NAME }}
