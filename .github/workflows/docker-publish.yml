@@ -59,7 +59,7 @@ jobs:
         uses: docker/login-action@v3 #343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
+          username: kgotlelelo1
           password: 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
 
       - name: download base image
