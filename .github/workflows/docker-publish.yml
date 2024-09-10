@@ -9,9 +9,29 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  BASE_IMAGE: ghcr.io/bbdsoftware/vanguard/python-postgresql:0.0.1--slim
+  BASE_IMAGE: python:3.7.16-slim-buster
   DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
+#   FROM python:3.7.16-slim-buster
+# # base file
+# RUN apt-get update && \
+#     apt-get install gcc libc-dev g++ libffi-dev libxml2 unixodbc-dev -y
+# RUN python -m pip install --upgrade pip
+
+# RUN groupadd -r appuser && useradd -g appuser appuser
+
+# USER appuser
+
+# ENV PATH="/home/appuser/.local/bin:${PATH}"
+
+# WORKDIR /home/appuser
+
+# # python postgresql
+# USER root
+
+# RUN apt-get update && apt-get install odbc-postgresql -y
+# RUN python -m pip install --upgrade pip
+# RUN pip install psycopg2-binary==2.9.5
 
 jobs:
   build:
@@ -42,8 +62,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: download base image
-      #   run: docker pull ghcr.io/bbdsoftware/vanguard/base-python:0.0.1-slim
+      - name: download base image
+        run: | 
+            echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin
+            docker pull ghcr.io/bbdsoftware/vanguard/base-python:0.0.1-slim
 
      # echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin
       # - name: Log into registry ${{ env.REGISTRY }}
