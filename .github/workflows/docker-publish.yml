@@ -43,8 +43,9 @@ jobs:
       #     password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: download base image
-        run: |     
-          docker pull ghcr.io/code367/upskilling-mt:docker-tetris
+        run: |    
+          echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin
+          docker pull ghcr.io/bbdsoftware/vanguard/python-postgresql:0.0.1--slim
 
      # echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin
       # - name: Log into registry ${{ env.REGISTRY }}
