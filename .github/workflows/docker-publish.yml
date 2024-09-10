@@ -42,8 +42,8 @@ jobs:
       #     username: ${{ github.actor }}
       #     password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: download base image
-        run: docker pull ghcr.io/bbdsoftware/vanguard/base-python:0.0.1-slim
+      # - name: download base image
+      #   run: docker pull ghcr.io/bbdsoftware/vanguard/base-python:0.0.1-slim
 
      # echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin
       # - name: Log into registry ${{ env.REGISTRY }}
@@ -62,23 +62,23 @@ jobs:
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
 
-      # - name: Build and push Docker image
-      #   id: build-and-push
-      #   uses: docker/build-push-action@v5 #0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
-      #   with: 
-      #     context: ./app_service
-      #     file: ./app_service/docker/Dockerfile
-      #     push: ${{ github.event_name != 'pull_request' }}
-      #     build-args: |
-      #       BASE_IMAGE=${{ env.BASE_IMAGE }}
-      #       IMAGE_NAME=${{ env.IMAGE_NAME }}
-      #       DOCKER_TOKEN=${{ env.DOCKER_TOKEN}}
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@v5 #0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
+        with: 
+          context: ./app_service
+          file: ./app_service/docker/Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          build-args: |
+            BASE_IMAGE=${{ env.BASE_IMAGE }}
+            IMAGE_NAME=${{ env.IMAGE_NAME }}
+            DOCKER_TOKEN=${{ env.DOCKER_TOKEN}}
             
-      #     tags: ghcr.io/kgotlelelomangene/thought_machine:v0.2
-      #     # tags: ${{ steps.meta.outputs.tags }}
-      #     # labels: ${{ steps.meta.outputs.labels }}
-      #     cache-from: type=gha
-      #     cache-to: type=gha,mode=max
+          tags: ghcr.io/kgotlelelomangene/thought_machine:v0.3
+          # tags: ${{ steps.meta.outputs.tags }}
+          # labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
         
         
 
