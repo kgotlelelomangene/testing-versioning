@@ -61,12 +61,13 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: kgotlelelo1
           password: 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
+          logout: false
 
       - name: download base image
         env: 
           DOCKER_TOKEN: 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
-        run: | 
-          echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin | docker pull ghcr.io/bbdsoftware/vanguard/base-python:0.0.1-slim
+        # run: | 
+        #   echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin | docker pull ghcr.io/bbdsoftware/vanguard/base-python:0.0.1-slim
             
 
      # echo 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 | docker login ghcr.io -u kgotlelelo1 --password-stdin
